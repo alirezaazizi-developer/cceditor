@@ -2,22 +2,22 @@ class CCEdit {
     /* create element grand parent in editor */
     // document.body.style.position = 'absolute';
     /* create element */
-    CCEditComponents(tagname, parent, property) {
-            let el = document.createElement(tagname);
+    CCEditComponents(property) {
+            let el = document.createElement(property.tagname);
             el.setAttribute('id', property.id);
             if (property.classes != null) {
-                property.classes.forEach(element => {
-                    el.classList.add(element);
+                property.classes.forEach(classname => {
+                    el.classList.add(classname);
                 });
             } else {
                 throw (`not have any class `);
             }
-            document.querySelector(parent).appendChild(el);
+            document.querySelector(property.parent).appendChild(el);
 
-            function setContent() {
+            SetContent() {
                 document.getElementById(property.id).innerHTML = property.html;
             }
-            property.id != null ? setContent() : console.log('fail to create html');
+            property.id != null ? SetContent() : console.log('fail to create html');
         }
         /* close editor most be and of the all javascript code */
     RemoveEditor() {
@@ -35,12 +35,14 @@ class CCEdit {
             document.getElementById(e.hidde).style.display = 'none';
         }
         /* under function for whole editor setting */
-    function RunCCEditor() {
+    RunCCEditor() {
         let editor = document.createElement('div');
         editor.setAttribute('id', 'editor');
         document.body.appendChild(editor);
         if (document.getElementById('editor') != null) {
-            element_creator('div', '#editor', {
+            CCEditComponents({
+                'tagname': 'div',
+                'parent': '#editor',
                 'id': 'editor-enviorment',
                 'classes': ['helo'],
                 'html': `
@@ -64,7 +66,9 @@ class CCEdit {
         </div>
         `
             });
-            element_creator('div', '#editor-mod', {
+            CCEditComponents({
+                'tagename': 'div',
+                'parent': '#editor-mod',
                 'id': 'editor-desk',
                 'classes': [],
                 'html': `

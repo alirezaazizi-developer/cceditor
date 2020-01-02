@@ -19,6 +19,12 @@ class CCEdit {
             }
             property.id != null ? SetContent() : console.log('fail to create html');
         }
+        /**
+         *   CCEdit Css Components
+         */
+    CCEditComponentsStyle(s) {
+            /** into this function most be set style  */
+        }
         /* close editor most be and of the all javascript code */
     RemoveEditor() {
             let s = document.getElementById('exit-editor');

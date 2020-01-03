@@ -43,16 +43,16 @@ class CCEdit {
         }
         /* under function for whole editor setting */
     RunCCEditor() {
-        let editor = document.createElement('div');
-        editor.setAttribute('id', 'editor');
-        document.body.appendChild(editor);
-        if (document.getElementById('editor') != null) {
-            CCEditComponents({
-                'tagname': 'div',
-                'parent': '#editor',
-                'id': 'editor-enviorment',
-                'classes': ['helo'],
-                'html': `
+            let editor = document.createElement('div');
+            editor.setAttribute('id', 'editor');
+            document.body.appendChild(editor);
+            if (document.getElementById('editor') != null) {
+                CCEditComponents({
+                    'tagname': 'div',
+                    'parent': '#editor',
+                    'id': 'editor-enviorment',
+                    'classes': ['helo'],
+                    'html': `
         <div id="main-editor">
             <div id="editor-tab">
                 <ul>
@@ -72,13 +72,13 @@ class CCEdit {
             </div>
         </div>
         `
-            });
-            CCEditComponents({
-                'tagename': 'div',
-                'parent': '#editor-mod',
-                'id': 'editor-desk',
-                'classes': [],
-                'html': `
+                });
+                CCEditComponents({
+                    'tagename': 'div',
+                    'parent': '#editor-mod',
+                    'id': 'editor-desk',
+                    'classes': [],
+                    'html': `
        <div id="edit-option">
            <ul>
               <li><a onclick="">فونت</a></li>
@@ -93,22 +93,31 @@ class CCEdit {
           <textarea id="editor-controller"></textarea>
        </div>
      `
-            });
-            /* under functions for editor proproties  */
-            RemoveEditor();
-            document.getElementById('html-source').value = document.body.outerHTML;
-            /* under codes for check user onclick */
-            document.getElementById('edit-mod').addEventListener('click', function() {
-                section({ 'hidde': 'html-code', 'active': 'editor-mod' });
-            });
-            document.getElementById('text-preview').addEventListener('click', function() {
-                section({ 'hidde': 'editor-mod', 'active': 'html-code' });
-            });
-        } else {
-            console.log('exist text editor');
+                });
+                /* under functions for editor proproties  */
+                RemoveEditor();
+                document.getElementById('html-source').value = document.body.outerHTML;
+                /* under codes for check user onclick */
+                document.getElementById('edit-mod').addEventListener('click', function() {
+                    section({ 'hidde': 'html-code', 'active': 'editor-mod' });
+                });
+                document.getElementById('text-preview').addEventListener('click', function() {
+                    section({ 'hidde': 'editor-mod', 'active': 'html-code' });
+                });
+            } else {
+                console.log('exist text editor');
+            }
+
         }
-
+        /** this condition for get selected text  */
+    if (document.getElementById('editor') != null) {
+        function CCEditorEditSelectedText() {
+            let txtarea = document.getElementById("mytextarea");
+            let start = txtarea.selectionStart;
+            let finish = txtarea.selectionEnd;
+            let selectedText = txtarea.value.substring(start, finish);
+            return selectedText;
+        }
     }
-
     /* under code active editor  */
 }

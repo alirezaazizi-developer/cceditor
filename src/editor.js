@@ -1,3 +1,4 @@
+/** CCEditor wrote with Alireza Azizi */
 class CCEdit {
     /* create element grand parent in editor */
     // document.body.style.position = 'absolute';

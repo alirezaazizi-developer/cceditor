@@ -13,6 +13,19 @@ function CCEditComponent(p) {
         document.getElementById(p.id).innerHTML = p.html;
     }
 }
+/* CCEdit add style */
+function CCEditStyleMode(s) {
+    var style = document.createElement('style');
+    style.type = 'text/css';
+    if (style.styleSheet) {
+        /* for IE browser */
+        style.styleSheet.cssText = s;
+    } else {
+        /* for another browser */
+        style.innerHTML = s;
+    }
+    document.getElementById('cceditor').appendChild(style);
+}
 /* remove CCEditor */
 function CCEditorRemove(parent) {
     if (document.getElementById('CCEdit') != null) {
@@ -25,15 +38,15 @@ function CCEditorRemove(parent) {
 function CCEditorSave() {
     var data = document.getElementById('cceditor-textarea');
     var http = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    http.onreadystatechange  = function () {
+    http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             console.log('sent');
             // document.getElementById("demo").innerHTML = this.responseText;
-        }else{
+        } else {
             throw('CCEditor send to save change is fail');
         }
     }
-    http.open('POST','https://google.com/search' , true);
+    http.open('POST', 'https://google.com/search', true);
     http.send(d.data);
 }
 /**/
@@ -60,6 +73,6 @@ function CCEditRunMainMode(e) {
     });
 }
 /* under code is main function for inline mode */
-function  CCEditRunInlineMode(e) {
+function CCEditRunInlineMode(e) {
 
 }

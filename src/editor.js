@@ -60,3 +60,6 @@ function CCEditRunMainMode(e) {
     });
 }
 /* under code is main function for inline mode */
+function  CCEditRunInlineMode(e) {
+
+}

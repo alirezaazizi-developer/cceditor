@@ -6,23 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>textEditor</title>
-    <link rel="stylesheet" href="css.css">
+    <!--<link rel="stylesheet" href="css.css">-->
 </head>
 
 <body>
     <!-- main components -->
     <div id="component-place">
-        <!-- right components -->
-        <div class="component" id="right-component">
-            <a class="editbtn" onclick="run_editor()">edit</a>
-        </div>
-        <!-- left components  -->
-        <div class="component" id="left-component ">
-            <a class="editbtn" onclick="run_editor()">edit</a>
-        </div>
+        <div id="editor"></div>
+        <div id="preview"></div>
     </div>
     <!-- load javascript libraries -->
-    <script src="./editor.js "></script>
+    <script src="../src/editor.js "></script>
+    <script>
+        CCEditRun({
+            'main':{
+                'parent':'#editor'
+            }
+        });
+    </script>
 </body>
 
 </html>

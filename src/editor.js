@@ -59,10 +59,10 @@ function CCEditRunMainMode(e) {
         'class': [],
         'parent': e.main.parent,
         'html': '<div id="cceditor-toolbar">' +
-        '<div class="cceditor-btn"><a onclick="alert(`hello owlrd`)">bold</a></div>' +
-        '<div class="cceditor-btn"><a onclick="alert(`hello owlrd`)">italic</a></div>' +
-        '<div class="cceditor-btn"><a onclick="alert(`hello owlrd`)"></a></div>' +
-        '<div class="cceditor-btn"><a onclick="alert(`hello owlrd`)">bold</a></div>' +
+        '<div class="cceditor-btn"><a onclick="alert()">bold</a></div>' +
+        '<div class="cceditor-btn"><a onclick="alert()">italic</a></div>' +
+        '<div class="cceditor-btn"><a onclick="alert()"></a></div>' +
+        '<div class="cceditor-btn"><a onclick="alert()">bold</a></div>' +
         '</div>' +
         '<div id="cceditor-textarea" contenteditable="true" spellcheck="false"><p>hello world</p></div>' +
         '<div id="cceditor-controller">' +

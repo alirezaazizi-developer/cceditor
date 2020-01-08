@@ -113,6 +113,10 @@ function FontFamily() {
 /* function add link */
 function AddLink(){
     var link = prompt('Please write a hyper link : ');
-    document.execCommand('createLink' , false , link);
+    if (link != null){
+        document.execCommand('createLink' , false , link);
+    }else{
+        alert('please write a link');
+    }
 }
 /* the under function for use check tagole*/

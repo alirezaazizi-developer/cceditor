@@ -33,35 +33,64 @@
     }
 
     #cceditor {
-        width: 100%;
+        width: 50%;
+        margin-right: auto;
+        margin-left: auto;
         height: auto;
+        border: 1px solid #646464;
     }
 
     #cceditor-toolbar {
-        height: 50px;
+        height: 20px;
         width: 100%;
+        padding: 0;
     }
 
     #cceditor-toolbar div {
         display: inline-block;
+        width: auto;
+        height: auto;
+        margin-left: 10px;
+        float: left;
+        margin-top: 2px;
     }
 
-    #cceditor-toolbar div a {
-        margin: 10px 10px 10px 10px;
+    .cceditor-btn button {
+        border: 0;
+        align-content: center;
+        background: none;
+        padding: 0;
+
     }
 
     #cceditor-textarea {
+        border-top: 1px solid #646464;
+        border-bottom: 1px solid #646464;
         height: 400px;
+        overflow-y: auto;
         width: 100%;
     }
 
     #cceditor-controller {
+
         height: 40px;
         width: 100%;
+        direction: rtl;
+    }
+
+    #cceditor-save {
+        color: white;
+        border: 1px solid #32dbee;
+        background: #32dbee;
+        outline: none;
+        border-radius: 2px;
+        padding: 0;
+        width: 120px;
+        height: 40px;
     }
 </style>
 <script>
-    document.getElementById('cceditor-save').addEventListener('click',function () {
+    document.getElementById('cceditor-save').addEventListener('click', function () {
         document.execCommand('bold');
     })
 

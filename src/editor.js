@@ -59,12 +59,12 @@ function CCEditRunMainMode(e) {
         'class': [],
         'parent': e.main.parent,
         'html': '<div id="cceditor-toolbar">' +
-        '<div class="cceditor-btn"><a onclick="alert()">bold</a></div>' +
-        '<div class="cceditor-btn"><a onclick="alert()">italic</a></div>' +
-        '<div class="cceditor-btn"><a onclick="alert()"></a></div>' +
-        '<div class="cceditor-btn"><a onclick="alert()">bold</a></div>' +
+        '<div class="cceditor-btn"><button onclick="Bold()">bold</button></div>' +
+        '<div class="cceditor-btn"><button onclick="Italic()">italic</button></div>' +
+        '<div class="cceditor-btn"><button onclick="AddImage()">Image</button></div>' +
+        '<div class="cceditor-btn"><button onclick="AddLink()">link</button></div>' +
         '</div>' +
-        '<div id="cceditor-textarea" contenteditable="true" spellcheck="false"><p>hello world</p></div>' +
+        '<div id="cceditor-textarea" contenteditable="true" spellcheck="false"><p>hello world come on boy</p></div>' +
         '<div id="cceditor-controller">' +
         '<div id="cceditor-controller-btn">' +
         '<button id="cceditor-save">Save btn</button>'
@@ -75,4 +75,35 @@ function CCEditRunMainMode(e) {
 /* under code is main function for inline mode */
 function CCEditRunInlineMode(e) {
 
+}
+
+/* Event bold */
+function Bold() {
+    document.execCommand('bold');
+}
+/* Event Italic */
+function AddImage() {
+    var value = prompt('Please write picture source in http path : ');
+    document.execCommand('insertImage' , false , value);
+}
+/* function Italic */
+function Italic() {
+    document.execCommand('italic');
+}
+/* function font size */
+function FontSize() {
+
+}
+/* function color */
+function Color() {
+
+}
+/* function font family */
+function FontFamily() {
+
+}
+/* function add link */
+function AddLink(){
+    var link = prompt('Please write a hyper link : ');
+    document.execCommand('createLink' , false , link);
 }

@@ -10,22 +10,62 @@
 </head>
 
 <body>
-    <!-- main components -->
-    <div id="component-place">
-        <div id="editor"></div>
-        <div id="preview"></div>
-    </div>
-    <!-- load javascript libraries -->
-    <script src="../src/editor.js "></script>
-    <script>
-        CCEditRunMainMode({
-            'main':{
-                'parent':'#editor' ,
-                'content':''
-            }
-        });
+<!-- main components -->
+<div id="component-place">
+    <div id="editor"></div>
+    <div id="preview"></div>
+</div>
+<!-- load javascript libraries -->
+<script src="../src/editor.js "></script>
+<script>
+    CCEditRunMainMode({
+        'main': {
+            'parent': '#editor',
+            'content': ''
+        }
+    });
+</script>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
 
-    </script>
+    }
+
+    #cceditor {
+        width: 100%;
+        height: auto;
+    }
+
+    #cceditor-toolbar {
+        height: 50px;
+        width: 100%;
+    }
+
+    #cceditor-toolbar div {
+        display: inline-block;
+    }
+
+    #cceditor-toolbar div a {
+        margin: 10px 10px 10px 10px;
+    }
+
+    #cceditor-textarea {
+        height: 400px;
+        width: 100%;
+    }
+
+    #cceditor-controller {
+        height: 40px;
+        width: 100%;
+    }
+</style>
+<script>
+    document.getElementById('cceditor-save').addEventListener('click',function () {
+        document.execCommand('bold');
+    })
+</script>
 </body>
 
 </html>
+<!-- -->

@@ -92,7 +92,6 @@ function Italic() {
 }
 /* function font size */
 function FontSize() {
-
 }
 /* function color */
 function Color() {
@@ -107,3 +106,4 @@ function AddLink(){
     var link = prompt('Please write a hyper link : ');
     document.execCommand('createLink' , false , link);
 }
+/* the under function for use check tagole*/

@@ -26,16 +26,30 @@
 <script src="../src/cceditor.js"></script>
 <script>
     document.getElementById('text1').addEventListener('click', function () {
-        CCEditorInline({
-            'parent': 'text1'
+        editorInline({
+            'parent': 'text1',
+            'property': []
         });
     });
+    /* Element finer */
+    function element(e) {
+        return document.getElementById(e);
+    }
+    /* style */
+    var style = `
+    #editor{position:absolute;top:-10;}
+`;
     /* this function for run cceditor inline mode run */
-    function CCEditorInline(e) {
-        if (document.getElementById('cceditor') == null) {
+    function editorInline(e) {
+        if (element('editor') == null) {
+            //element(e.parent).style.position = 'absolute';
             var editorToolbar = document.createElement('div');
             editorToolbar.setAttribute('id', 'editor');
-            document.getElementById(e.parent).appendChild(editorToolbar);
+            editorToolbar.innerHTML = 'hello world';
+            element(e.parent).appendChild(editorToolbar);
+            var editorStyle = document.createElement('style');
+            editorStyle.innerHTML = style;
+            element(e.parent).appendChild(editorStyle);
         }
     }
 </script>

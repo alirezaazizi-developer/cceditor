@@ -6,48 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>textEditor</title>
-    <!--<link rel="stylesheet" href="css.css">-->
+    <link rel="stylesheet" href="css.css">
 </head>
 
 <body>
 <!-- main components -->
 <div id="component-place">
-    <div id="editor"></div>
-    <div id="preview"></div>
+    <div contenteditable="true" class="text" id="text1">
+        hello world that is first text inline editor about edit user friendly editor
+    </div>
+    <div class="text" id="text2">
+        hello that is a simple text editor for use better about yourself
+    </div>
+    <div id="text3" class="text">
+        hello welcome to use cceditor free license editor
+    </div>
 </div>
 <!-- load javascript libraries -->
-<script src="../src/editor.js "></script>
+<script src="../src/cceditor.js"></script>
 <script>
-    CCEditRunMainMode({
-        'main': {
-            'parent': '#editor',
-            'content': ''
-        }
+    document.getElementById('text1').addEventListener('click', function () {
+        CCEditorInline({
+            'parent': 'text1'
+        });
     });
-</script>
-<style>
-
-</style>
-<script>
-    document.getElementById('cceditor-save').addEventListener('click', function () {
-        document.execCommand('bold');
-    })
-
-    var des = 'hello world';
-    console.log(des.split(' '));
-    // The string:
-    var str = "Hello world!";
-
-    // Look for "Hello"
-    var patt = /Hello/g;
-    var result = patt.exec(str);
-    console.log(result);
-    // Look for "W3Schools"
-    var patt2 = /W3Schools/g;
-    result2 = patt2.exec(str);
-    console.log(result2);
+    /* this function for run cceditor inline mode run */
+    function CCEditorInline(e) {
+        if (document.getElementById('cceditor') == null) {
+            var editorToolbar = document.createElement('div');
+            editorToolbar.setAttribute('id', 'editor');
+            document.getElementById(e.parent).appendChild(editorToolbar);
+        }
+    }
 </script>
 </body>
-
 </html>
 <!-- -->

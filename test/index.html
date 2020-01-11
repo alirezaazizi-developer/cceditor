@@ -28,7 +28,7 @@
     document.getElementById('text1').addEventListener('click', function () {
         editorInline({
             'parent': 'text1',
-            'property': [],
+            'property': ['bold' , 'italic'],
             'fonts': [],
         });
     });
@@ -36,8 +36,21 @@
     function element(e) {
         return document.getElementById(e);
     }
+    /* function for add editor property */
+    function property(p) {
+        switch(p){
+            case 'bold':
+                alert('bold');
+                break;
+            case 'italic':
+                alert('italic');
+                break;
+            default:
+                throw ('property invalid property');
+        }
+    }
     /* style */
-    var style = '#editor{width:100%;height:auto;background-color:#f4f4f4;position:absolute;top:-25px;}';
+    var style = '#editor{width:100%;height:auto;border:1px solid #f5f5f5;background-color:#f9f9f9;position:absolute;top:-25px;}';
     /* this function for run cceditor inline mode run */
     function editorInline(e) {
         if (element('editor') == null) {
@@ -45,7 +58,9 @@
             var toolbar = document.createElement('div');
             toolbar.setAttribute('id', 'editor');
             toolbar.setAttribute('contenteditable', 'false');
-            toolbar.innerHTML = 'hello world';
+            e.property.forEach(function (pro) {
+                property(pro);
+            });
             element(e.parent).appendChild(toolbar);
             var editorStyle = document.createElement('style');
             editorStyle.innerHTML = style;

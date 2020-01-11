@@ -28,7 +28,8 @@
     document.getElementById('text1').addEventListener('click', function () {
         editorInline({
             'parent': 'text1',
-            'property': []
+            'property': [],
+            'fonts': [],
         });
     });
     /* Element finer */
@@ -36,22 +37,32 @@
         return document.getElementById(e);
     }
     /* style */
-    var style = `
-    #editor{position:absolute;top:-10;}
-`;
+    var style = '#editor{width:100%;height:auto;background-color:#f4f4f4;position:absolute;top:-25px;}';
     /* this function for run cceditor inline mode run */
     function editorInline(e) {
         if (element('editor') == null) {
-            //element(e.parent).style.position = 'absolute';
-            var editorToolbar = document.createElement('div');
-            editorToolbar.setAttribute('id', 'editor');
-            editorToolbar.innerHTML = 'hello world';
-            element(e.parent).appendChild(editorToolbar);
+            element(e.parent).style.position = 'relative';
+            var toolbar = document.createElement('div');
+            toolbar.setAttribute('id', 'editor');
+            toolbar.setAttribute('contenteditable', 'false');
+            toolbar.innerHTML = 'hello world';
+            element(e.parent).appendChild(toolbar);
             var editorStyle = document.createElement('style');
             editorStyle.innerHTML = style;
-            element(e.parent).appendChild(editorStyle);
+            document.body.appendChild(editorStyle);
         }
     }
+    /* remove function */
+    function CCEditorRemove(parent) {
+        if (document.getElementById('CCEdit') != null) {
+            document.getElementById(parent).removeChild('CCEdit');
+        } else {
+            throw ('CCEdit not defined yet');
+        }
+    }
+    document.getElementById('text2').addEventListener('click' , function () {
+        element('text1').removeChild(element('editor'));
+    });
 </script>
 </body>
 </html>

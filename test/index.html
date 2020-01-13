@@ -1,3 +1,4 @@
+<!-- copyrighting with Alireza Azizi -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,52 +33,7 @@
             'fonts': [],
         });
     });
-    /* Element finer */
-    function element(e) {
-        return document.getElementById(e);
-    }
-    /* function for add editor property */
-    function property(p) {
-        switch(p){
-            case 'bold':
-                alert('bold');
-                break;
-            case 'italic':
-                alert('italic');
-                break;
-            default:
-                throw ('property invalid property');
-        }
-    }
-    /* style */
-    var style = '#editor{width:100%;height:auto;border:1px solid #f5f5f5;background-color:#f9f9f9;position:absolute;top:-25px;}';
-    /* this function for run cceditor inline mode run */
-    function editorInline(e) {
-        if (element('editor') == null) {
-            element(e.parent).style.position = 'relative';
-            var toolbar = document.createElement('div');
-            toolbar.setAttribute('id', 'editor');
-            toolbar.setAttribute('contenteditable', 'false');
-            e.property.forEach(function (pro) {
-                property(pro);
-            });
-            element(e.parent).appendChild(toolbar);
-            var editorStyle = document.createElement('style');
-            editorStyle.innerHTML = style;
-            document.body.appendChild(editorStyle);
-        }
-    }
-    /* remove function */
-    function CCEditorRemove(parent) {
-        if (document.getElementById('CCEdit') != null) {
-            document.getElementById(parent).removeChild('CCEdit');
-        } else {
-            throw ('CCEdit not defined yet');
-        }
-    }
-    document.getElementById('text2').addEventListener('click' , function () {
-        element('text1').removeChild(element('editor'));
-    });
+
 </script>
 </body>
 </html>

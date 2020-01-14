@@ -5,15 +5,15 @@ function element(e) {
 /* function for exchange text status */
 /* function bold */
 function bold() {
-    alert("HELLO WORLD");
+    document.execCommand("bold");
 }
 /* function italic */
 function italic() {
-
+    document.execCommand('italic');
 }
 /* function underline */
 function underline() {
-
+    document.execCommand("underline");
 }
 /* function bgColor */
 function bgColor() {
@@ -21,13 +21,14 @@ function bgColor() {
 }
 /* function external link */
 function link() {
-
+    let address = prompt("Please tell me a link");
+    document.execCommand("createlink" , null , address);
 }
 /* function color */
 function color() {
 
 }
-/* function righ*/
+/* function right */
 function right() {
 
 }
@@ -46,37 +47,43 @@ function addProperty(a) {
     el.setAttribute("onclick", a.func);
     el.setAttribute("class" , "editorOption");
     element('editor').appendChild(el);
-    el.innerHTML = "bold";
+    el.innerHTML = a.icon;
 }
 /* function for add editor property */
 function property(p) {
     switch (p) {
         /* when is attribute bold is active */
         case "bold":
-            addProperty({"id": "cceditor-bold", "func": "bold()"});
+            addProperty({"id": "cceditor-bold", "func": "bold()" , "icon":"b"});
             break;
         case "italic":
-            addProperty({"id": "cceditor-bold", "func": "italic()"});
+            addProperty({"id": "cceditor-italic", "func": "italic()" , "icon":"i"});
+            break;
+        case "underline":
+            addProperty({"id":"cceditor-underline" , "func":"underline()" , "icon":"un"});
+            break;
+        case "link":
+            addProperty({"id":"cceditor-link" , "func":"link" , "icon":"li"});
             break;
         default:
             throw ('property invalid property');
     }
 }
 /* style */
-var style = '#editor{width:100%;height:auto;border:1px solid #f5f5f5;background-color:#f9f9f9;position:absolute;top:-25px;}' +
-    '.editorOption{padding:0;border:1px solid #f5f5f5; background:#f5f5f5;width:20px;height:20px;margin-top:2px;margin-bottom:2px;margin-right:2px;dispaly:inline-block}';
+let style = '#editor{width:100%;height:auto;border:1px solid #f5f5f5;background-color:#f9f9f9;position:absolute;top:-25px;}' +
+    '.editorOption{padding:0;border:1px solid #f5f5f5; background:#f5f5f5;width:30px;height:20px;margin-top:2px;margin-bottom:2px;margin-right:2px;dispaly:inline-block}';
 /* this function for run cceditor inline mode run */
 function editorInline(e) {
     if (element('editor') == null) {
         element(e.parent).style.position = 'relative';
-        var toolbar = document.createElement('div');
+        let toolbar = document.createElement('div');
         toolbar.setAttribute('id', 'editor');
         toolbar.setAttribute('contenteditable', 'false');
         element(e.parent).appendChild(toolbar);
         e.property.forEach(function (pro) {
             property(pro);
         });
-        var editorStyle = document.createElement('style');
+        let editorStyle = document.createElement('style');
         editorStyle.innerHTML = style;
         document.body.appendChild(editorStyle);
     }

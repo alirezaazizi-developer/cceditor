@@ -16,30 +16,42 @@ function underline() {
     document.execCommand("underline");
 }
 /* function bgColor */
-function bgColor() {
-
+function backgroundColor() {
+    /* is simple shape of bg color */
+    let bgcolor = prompt("Please write a hex value in editor");
+    document.execCommand("backColor" , null , bgcolor);
 }
 /* function external link */
 function link() {
-    let address = prompt("Please tell me a link");
-    document.execCommand("createlink" , null , address);
+    let addr = prompt("Please tell me a link");
+    if (addr != null){
+        document.execCommand("createlink" , null , addr);
+    }else{
+        console.log("please write any http address");
+    }
 }
 /* function color */
 function color() {
 
 }
+/* font size */
+function font_size() {
+    let font = prompt("Enter font size");
+    document.execCommand("fontSize");
+}
 /* function right */
-function right() {
-
+function justify_right() {
+    document.execCommand("justifyRight");
 }
 /*function left */
-function left() {
-
+function justify_left() {
+    document.execCommand("justifyLeft");
 }
 /* function center */
-function center() {
-
+function justify_center() {
+    document.execCommand("justifyCenter");
 }
+
 /*function for add property */
 function addProperty(a) {
     var el = document.createElement("button");
@@ -63,14 +75,22 @@ function property(p) {
             addProperty({"id":"cceditor-underline" , "func":"underline()" , "icon":"un"});
             break;
         case "link":
-            addProperty({"id":"cceditor-link" , "func":"link" , "icon":"li"});
+            addProperty({"id":"cceditor-link" , "func":"link()" , "icon":"li"});
             break;
+        case "bg":
+            addProperty({"id":"cceditor-bgcolor" , "func":"backgroundColor()" , "icon":"bg"});
+            break;
+        case "right":
+            addProperty({"id":"cceditor-justify-right","func":"justify_right()" , "icon":"right"});
+            break;
+        case "font-size":
+            addProperty({"id":"cceditor-font-size", "func":"font_size()" , "icon":"size"});
         default:
             throw ('property invalid property');
     }
 }
 /* style */
-let style = '#editor{width:100%;height:auto;border:1px solid #f5f5f5;background-color:#f9f9f9;position:absolute;top:-25px;}' +
+let style = '#editor{width:99%;height:auto;border:1px solid #f5f5f5;background-color:#f9f9f9;position:absolute;top:-30px;margin-right"auto;margin-left:auto}' +
     '.editorOption{padding:0;border:1px solid #f5f5f5; background:#f5f5f5;width:30px;height:20px;margin-top:2px;margin-bottom:2px;margin-right:2px;dispaly:inline-block}';
 /* this function for run cceditor inline mode run */
 function editorInline(e) {

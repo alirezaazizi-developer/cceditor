@@ -44,7 +44,8 @@ function link() {
 
 /* function color */
 function color() {
-
+    let color = prompt("add your color ");
+    document.execCommand("color" , null , color);
 }
 
 /* font size */
@@ -73,10 +74,13 @@ function justify_center() {
 function addProperty(a) {
     var el = document.createElement(a.tag);
     el.setAttribute("id", a.id);
-    el.setAttribute("onclick", a.func);
+    if (a.tag === "button"){
+        el.setAttribute("onclick", a.func);
+        el.innerHTML = a.icon;
+    }
     el.setAttribute("class", "editorOption");
     element('editor').appendChild(el);
-    el.innerHTML = a.icon;
+
 }
 
 /* function for add editor property */
@@ -84,31 +88,34 @@ function property(p) {
     switch (p) {
         /* when is attribute bold is active */
         case "bold":
-            addProperty({"id": "cceditor-bold", "func": "bold()", "icon": "b"});
+            addProperty({"tag":"button", "id": "cceditor-bold", "func": "bold()", "icon": "b"});
             break;
         case "italic":
-            addProperty({"id": "cceditor-italic", "func": "italic()", "icon": "i"});
+            addProperty({"tag":"button" , "id": "cceditor-italic", "func": "italic()", "icon": "i"});
             break;
         case "underline":
-            addProperty({"id": "cceditor-underline", "func": "underline()", "icon": "un"});
+            addProperty({"tag":"button", "id": "cceditor-underline", "func": "underline()", "icon": "un"});
             break;
         case "link":
-            addProperty({"id": "cceditor-link", "func": "link()", "icon": "li"});
+            addProperty({"tag":"button" , "id": "cceditor-link", "func": "link()", "icon": "li"});
             break;
         case "bg":
-            addProperty({"id": "cceditor-bgcolor", "func": "backgroundColor()", "icon": "bg"});
+            addProperty({"tag":"button" , "id": "cceditor-bgcolor", "func": "backgroundColor()", "icon": "bg"});
             break;
         case "right":
-            addProperty({"id": "cceditor-justify-right", "func": "justify_right()", "icon": "right"});
+            addProperty({"tag":"button" , "id": "cceditor-justify-right", "func": "justify_right()", "icon": "right"});
             break;
         case "center":
-            addProperty({"id": "cceditor-justify-center", "func": "justify_center()", "icon": "center"});
+            addProperty({"tag":"button" , "id": "cceditor-justify-center", "func": "justify_center()", "icon": "center"});
             break;
         case "left":
-            addProperty({"id": "cceditor-justify-left", "func": "justify_left()", "icon": "left"});
+            addProperty({"tag":"button" , "id": "cceditor-justify-left", "func": "justify_left()", "icon": "left"});
             break;
         case "font-size":
-            addProperty({"id": "cceditor-font-size", "func": "font_size()", "icon": "size"});
+            addProperty({"tag":"button" , "id": "cceditor-font-size", "func": "font_size()", "icon": "size"});
+            break;
+        case "font-color":
+            addProperty({"tag":"button" , "id": "cceditor-font-color", "func": "color()", "icon": "color"});
             break;
         default:
             throw ('property invalid property');

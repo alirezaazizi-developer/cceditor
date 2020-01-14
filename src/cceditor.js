@@ -5,7 +5,7 @@ function element(e  ) {
 /* function selected text */
 function selecet(el){
     let element = document.getElementById(el);
-    return window.getSelection();
+    // return window.getSelection();
 
 }
 /* function for exchange text status */
@@ -94,7 +94,26 @@ function addProperty(a) {
     element('editor').appendChild(el);
 
 }
-
+/* get popup page for receive a value */
+function editorValueGetter(setting) {
+    let popup = document.createElement("div");
+    popup.setAttribute("class" , "editor-popup");
+    let popupStyle = "{width:200px;height:200px}";
+    popup.setAttribute("style",popupStyle);
+    let title = document.createElement("p");
+    title.innerText = setting.title;
+    let dataType = document.createElement("input");
+    dataType.setAttribute("id","dataValue");
+    popup.appendChild(title);
+    popup.appendChild(dataType);
+    element(setting.id).appendChild(popup);
+}
+/* under function for replace white space */
+function editorGetSpace(data) {
+    let pattern = /&nbsp/g;
+    let result = data.replace(" " , "%%");
+    return result;
+}
 /* function for add editor property */
 function property(p) {
     switch (p.option) {
@@ -138,8 +157,8 @@ function property(p) {
 }
 
 /* style */
-let style = '#editor{width:99%;height:auto;border:1px solid #f5f5f5;background-color:#f9f9f9;position:absolute;top:-30px;margin-right"auto;margin-left:auto}' +
-    '.editorOption{padding:0;border:1px solid #f5f5f5; background:#f5f5f5;width:30px;height:20px;margin-top:2px;margin-bottom:2px;margin-right:2px;dispaly:inline-block}';
+let style = '#editor{width:99%;height:auto;border:1px solid #f5f5f5;background-color:#f9f9f9;position:absolute;top:-30px;margin-right:auto;margin-left:auto}' +
+    '.editorOption{padding:0;border:0 !important; background:#f5f5f5;width:40px;height:20px;margin-top:2px;margin-bottom:2px;margin-right:2px;display:inline-block;outline:none}';
 
 /* this function for run cceditor inline mode run */
 function editorInline(e) {
@@ -171,5 +190,13 @@ document.getElementById('text2').addEventListener('click', function () {
 });
  */
 function editorExport() {
-    element("text-content").innerHTML = element('text1').innerHTML;
+    editorValueGetter({"id":"editor" , "title":"link"});
+    let value = element('text1').innerHTML;
+    element('text-content').innerHTML = editorGetSpace(value);
 }
+/* onclick event */
+// function editorIsRun() {
+//     if (element("editor") != null){
+//
+//     }
+// }

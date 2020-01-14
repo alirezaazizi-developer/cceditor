@@ -1,5 +1,5 @@
 /* Element finer */
-function element(e) {
+function element(e  ) {
     return document.getElementById(e);
 }
 /* function selected text */
@@ -74,9 +74,12 @@ function font_family(p) {
     let select = document.createElement("select");
     select.innerHTML  = '<option>فونت</option>';
 
-    if (p === null){
-
+    if (p != null){
+        p.forEach(function (fontValue) {
+            select.innerHTML += "<option>"+fontValue+"</option>";
+        });
     }
+
     element('editor').appendChild(select);
 }
 /*function for add property */

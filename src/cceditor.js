@@ -94,7 +94,7 @@ function addProperty(a) {
 
 /* function for add editor property */
 function property(p) {
-    switch (p) {
+    switch (p.option) {
         /* when is attribute bold is active */
         case "bold":
             addProperty({"tag":"button", "id": "cceditor-bold", "func": "bold()", "icon": "b"});
@@ -127,7 +127,7 @@ function property(p) {
             addProperty({"tag":"button" , "id": "cceditor-font-color", "func": "color()", "icon": "color"});
             break;
         case "font-family":
-
+            font_family(p.font);
             break;
         default:
             throw ('property invalid property');
@@ -147,12 +147,11 @@ function editorInline(e) {
         toolbar.setAttribute('contenteditable', 'false');
         element(e.parent).appendChild(toolbar);
         e.property.forEach(function (pro) {
-            property(pro);
+            property({"option":pro , "font":e.fonts});
         });
         let editorStyle = document.createElement('style');
         editorStyle.innerHTML = style;
         document.body.appendChild(editorStyle);
-        font_family(e.fonts);
     }
 }
 
@@ -168,3 +167,6 @@ document.getElementById('text2').addEventListener('click', function () {
     element('text1').removeChild(element('editor'));
 });
  */
+function editorExport() {
+    element("text-content").innerHTML = element('text1').innerHTML;
+}

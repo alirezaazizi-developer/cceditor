@@ -69,7 +69,16 @@ function justify_left() {
 function justify_center() {
     document.execCommand("justifyCenter");
 }
+/* font family function */
+function font_family(p) {
+    let select = document.createElement("select");
+    select.innerHTML  = '<option>فونت</option>';
 
+    if (p === null){
+
+    }
+    element('editor').appendChild(select);
+}
 /*function for add property */
 function addProperty(a) {
     var el = document.createElement(a.tag);
@@ -117,6 +126,9 @@ function property(p) {
         case "font-color":
             addProperty({"tag":"button" , "id": "cceditor-font-color", "func": "color()", "icon": "color"});
             break;
+        case "font-family":
+
+            break;
         default:
             throw ('property invalid property');
     }
@@ -140,6 +152,7 @@ function editorInline(e) {
         let editorStyle = document.createElement('style');
         editorStyle.innerHTML = style;
         document.body.appendChild(editorStyle);
+        font_family(e.fonts);
     }
 }
 

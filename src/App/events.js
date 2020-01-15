@@ -1,5 +1,5 @@
 /* under class for handle editor event */
-export class Events {
+export default class Events {
     /* func for bold */
     bold(){
         document.execCommand("bold");

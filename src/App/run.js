@@ -14,5 +14,8 @@ export default function ccEditorInline(property) {
     * some code
     *
     */
+    property.feature.forEach(function (features) {
+
+    });
     document.body.appendChild(editor);
 }

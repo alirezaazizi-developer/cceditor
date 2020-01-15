@@ -8,6 +8,85 @@
     <title>Document</title>
 </head>
 <body>
+<div id="main">hello world</div>
+<div id="btn"><div id="edit"><button id="editable">تغییر محتوا</button></div></div>
 <script src="../dist/editor.js"></script>
 </body>
+<style>
+    @font-face {
+        font-family: "samim";
+        src: url("App/samim.ttf") format("truetype");
+    }
+    body{
+        font: 12px samim;
+        margin: 0;
+        padding: 0;
+        background: #ececec;
+    }
+    button{
+        font-family: samim;
+    }
+    @media screen and (max-width: 600px) {
+        #main{
+            width: 90%;
+            height: auto;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 50px;
+            background: #ffffff;
+
+        }
+        #btn{
+            width: 80%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        #edit{
+            margin-top: 30px;
+            width: auto;
+            height: 50px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        #edit button{
+            width: 200px;
+            height: 100%;
+            padding: 0;
+            border: 0;
+            background: #f43617;
+            outline: none;
+        }
+    }
+    @media screen and (min-height: 601px) {
+        #main{
+            width: 90%;
+            height: auto;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 50px;
+            background: #ffffff;
+
+        }
+        #btn{
+            width: 80%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        #edit{
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 30px;
+            width: auto;
+            height: 50px;
+        }
+        #edit button{
+            width: 200px;
+            height: 100%;
+            padding: 0;
+            border: 0;
+            background: #f43617;
+            outline: none;
+        }
+    }
+</style>
 </html>
